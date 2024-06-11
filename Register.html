@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="Main.css">
+</head>
+<body>
+    <div class = "signinmain">
+        <img src="Picture/Miku1.jpg" alt="Lỗi ảnh!!">
+        <div class="registercon">
+            <form>
+                <div class="topsignin cach">
+                    <h2>Đăng Ký</h2>
+                    <div><a href="Sign in.html"><img src="Picture/back.png" alt="Lỗi ảnh"></a></div>
+                </div>
+                <div class="tkmk">
+                    <div class="index">
+                        <label for="username">Tài khoản:</label><br><br>
+                        <label for="password">Mật khẩu:</label><br><br>
+                        <label for="password">Xác nhận mật khẩu:</label>
+                    </div>
+                   <div>       
+                        <input class="tkhoanregi" type="text" id="username"><br><br>
+                        <input class="pass" type="password" id="passworddo"><br><br>
+                        <input class="pass" type="password" id="passwordxndo"><br><br>
+                   </div>
+                </div> 
+                <button class="regi">Đăng Ký</button>
+                </div>                            
+            </form>
+        </div>
+    </div>
+    <script>
+        const register = document.querySelector('.regi')
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('passworddo');
+        const passwordInputxn = document.getElementById('passwordxndo');
+
+
+        register.addEventListener('click', function(){
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+            const passwordxn = passwordInputxn.value;
+
+            if(usernameInput.value == ""){
+                alert("Hãy nhập tài khoản");
+                return;
+            }            
+            if(username.length < 4 || username.length > 11) {
+                alert("Tài khoản phải dài trên 4 ký tự và nhỏ hơn 12 ký tự");
+                usernameInput.value = "";
+                return;
+            }
+            if(/[^a-zA-Z0-9]/.test(username)){
+                alert("Tài khoản không chứa ký tự đặc biệt");
+                usernameInput.value = "";
+                return;
+            }
+
+
+            if(passwordInput.value == ""){
+                alert("Hãy nhập mật khẩu");
+                return;
+            } 
+            if(password.length < 3 || password.length > 10) {
+                alert("Mật khẩu phải dài trên 3 ký tự và nhỏ hơn 10 ký tự");
+                passwordInput.value = "";
+                return;
+            }
+            if(/[^a-zA-Z0-9]/.test(password)){
+                alert("Mật khẩu không chứa ký tự đặc biệt");
+                passwordInput.value = "";
+                return;
+            }
+
+
+            if(passwordInputxn.value == ""){
+                alert("Hãy nhập mật khẩu");
+                return;
+            } 
+            if(passwordxn.length < 3 || passwordxn.length > 10) {
+                alert("Mật khẩu phải dài trên 3 ký tự và nhỏ hơn 10 ký tự");
+                passwordInputxn.value = "";
+                return;
+            }
+            if(/[^a-zA-Z0-9]/.test(passwordxn)){
+                alert("Mật khẩu không chứa ký tự đặc biệt");
+                passwordInputxn.value = "";
+                return;
+            }
+
+            if(passwordInput.value !== passwordInputxn.value){
+                alert("Mật khẩu xác nhận không khớp")
+                return;
+            }
+            else{
+                alert('Đăng ký thành công')
+                return;
+            }
+        })
+    </script>
+</body>
+</html>

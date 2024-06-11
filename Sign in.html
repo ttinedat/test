@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="Main.css">
+</head>
+<body>
+    <div class = "signinmain">
+        <img src="Picture/Miku1.jpg" alt="Lỗi ảnh!!">
+        <div class="signincon">
+            <form>
+                <div class="topsignin">
+                    <h2>Đăng nhập</h2>
+                    
+                    <div><a href="Main.html"><img src="Picture/back.png" alt="Lỗi ảnh"></a></div>
+                </div>
+                <div class="tkmk">
+                    <div>
+                        <label for="username">Tài khoản:</label><br><br>
+                        <label for="password">Mật khẩu:</label>
+                    </div>
+                   <div>       
+                        <input class="tkhoansig" type="text" id="username"><br><br>
+                        <input class="pass" type="password" id="passworddo">  
+                        <div class="showpass"><img src="Picture/eye.png" alt="Lỗi ảnh!!"></div><br><br>
+                   </div>
+                </div>
+                
+                <button class="sign">Đăng nhập</button>
+                <div class= "or"> 
+                    <div>Nếu bạn chưa có tài khoản</div>
+                <a class="font" href="Register.html">Register</a>   
+                </div>                            
+            </form>
+        </div>
+    </div>
+    <script>
+        const showpassw = document.querySelector('.showpass')
+        const signin = document.querySelector('.sign')
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('passworddo');
+
+        showpassw.addEventListener('click', function(){
+        var password1 = document.getElementById("passworddo");
+        if (password1.type == "password") {
+            password1.type = "text";
+        } else {
+            password1.type = "password";
+        }
+        })
+
+
+        signin.addEventListener('click', function(){
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+
+            if(usernameInput.value == ""){
+                alert("Hãy nhập tài khoản");
+                return;
+            }            
+            if(username.length < 4 || username.length > 11) {
+                alert("Tài khoản phải dài trên 4 ký tự và nhỏ hơn 12 ký tự");
+                usernameInput.value = "";
+                return;
+            }
+            if(/[^a-zA-Z0-9]/.test(username)){
+                alert("Tài khoản không chứa ký tự đặc biệt");
+                usernameInput.value = "";
+                return;
+            }
+
+
+            if(passwordInput.value == ""){
+                alert("Hãy nhập mật khẩu");
+                return;
+            } 
+            if(password.length < 3 || password.length > 10) {
+                alert("Mật khẩu phải dài trên 3 ký tự và nhỏ hơn 10 ký tự");
+                passwordInput.value = "";
+                return;
+            }
+            if(/[^a-zA-Z0-9]/.test(password)){
+                alert("Mật khẩu không chứa ký tự đặc biệt");
+                passwordInput.value = "";
+                return;
+            }
+        })     
+    </script>
+</body>
+</html>
